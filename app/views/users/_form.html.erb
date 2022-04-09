@@ -24,11 +24,12 @@
     <%= form.label :password_confirmation, class: "form-label" %>
     <%= form.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <div>
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
+  <div class="mb-3">
+    <%= form.label :avatar, class: "form-label"%>
+    <%= form.file_field :avatar, class: "form-control" %>
   </div>
-  <div>
-    <%= form.submit %>
+  <div class="w-20">
+    <%= form.submit "Create", class: "btn btn-primary" %>
+    <%= link_to "Back to users", users_path, class: "btn btn btn-info text-white" %>
   </div>
 <% end %>
