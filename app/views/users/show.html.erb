@@ -1,10 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @user %>
-
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+<div class="text-end">
+  <%= link_to "Back to users", users_path, class: "btn btn-outline-info" %>
 </div>
+
+<%= render "users/user_card", object: @show_edit_link = true %>

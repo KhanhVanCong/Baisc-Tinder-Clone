@@ -1,2 +1,21 @@
-<h1>Home#index</h1>
-<%= link_to "Users", users_path %>
+<%= turbo_frame_tag "info_frame" do %>
+
+  <% if logged_in? %>
+    <% if @user %>
+      <%= render "users/user_card", object: @show_edit_link = false %>
+    <% else %>
+      <div class="text-center">
+        <p>Not found any other users</p>
+        <%= link_to "Liked users", liked_the_other_user_path(current_user), class: "nav-link", data: { turbo_frame: "_top" } %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="text-center">
+      <p>Welcome to Tinder clone</p>
+      <p>You need to login if you wanna try this app</p>
+      <%= link_to "Log in", login_path, class: "nav-link", data: { turbo_frame: "_top" } %>
+    </div>
+  <% end %>
+
+<% end %>
+

@@ -8,6 +8,7 @@
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Age</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
       <td><%= user.age %></td>
+      <td>
+        <%= link_to "Details", user, class: "btn btn-primary"%>
+      </td>
     </tr>
   </table>
 </div>

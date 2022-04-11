@@ -20,12 +20,15 @@
     <%= form.label :password, class: "form-label" %>
     <%= form.password_field :password, class: "form-control" %>
   </div>
+  <% if @user.id.nil? %>
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: "form-label" %>
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+  <% end %>
+
   <div class="mb-3">
-    <%= form.label :password_confirmation, class: "form-label" %>
-    <%= form.password_field :password_confirmation, class: "form-control" %>
-  </div>
-  <div class="mb-3">
-    <%= form.label :avatar, class: "form-label"%>
+    <%= form.label :avatar, class: "form-label" %>
     <%= form.file_field :avatar, class: "form-control" %>
   </div>
   <div class="w-20">

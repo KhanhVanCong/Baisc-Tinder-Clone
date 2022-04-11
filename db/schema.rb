@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_08_074613) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_09_073746) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,9 +34,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_074613) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "relationship_likes", force: :cascade do |t|
+    t.integer "liker_id"
+    t.string "liked_id"
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liked_id"], name: "index_relationship_likes_on_liked_id"
+    t.index ["liker_id", "liked_id"], name: "index_relationship_likes_on_liker_id_and_liked_id", unique: true
+    t.index ["liker_id"], name: "index_relationship_likes_on_liker_id"
   end
 
   create_table "users", force: :cascade do |t|

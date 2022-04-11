@@ -7,3 +7,10 @@ one:
   age: 18
   password_digest: <%= User.digest('password1') %>
 
+two:
+  first_name: hana
+  last_name: van
+  email: hana@example.com
+  age: 18
+  password_digest: <%= User.digest('password1') %>
+

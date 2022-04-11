@@ -1,0 +1,12 @@
+<% if logged_in? && (current_user != @user) && current_user.like?(@user) %>
+  <%= form_with(model: current_user.active_relationship_likes.find_by(liked_id: @user.id),
+                html: { method: :delete },
+                class: "d-inline-block") do
+  |form| %>
+    <%= render 'shared/error_messages' %>
+    <div><%= hidden_field_tag :liked_id, @user.id %></div>
+    <div class="w-20">
+      <%= form.submit "Unlike", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

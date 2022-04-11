@@ -1,0 +1,11 @@
+<div class="card m-auto" style="width: 18rem;" id="<%= dom_id @user %>">
+  <%= link_to image_tag(@user.avatar_as_thumbnail, class: "card-img-top"), @user.avatar, target: "blank" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.full_name %>, <%= @user.age %> </h5>
+    <%= render 'users/like' %>
+    <%= render 'users/unlike' %>
+    <% if @show_edit_link %>
+      <%= link_to "Edit this user", edit_user_path(@user), class: "btn  btn-primary" %>
+    <% end %>
+  </div>
+</div>

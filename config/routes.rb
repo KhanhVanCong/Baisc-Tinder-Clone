@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
-  resources :users
+  resources :users do
+    member do
+      get :liked_the_other, :likers
+    end
+  end
+  resources :relationship_likes, only: [:create, :destroy]
   root "home#index"
 end
