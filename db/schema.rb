@@ -41,8 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_073746) do
 
   create_table "relationship_likes", force: :cascade do |t|
     t.integer "liker_id"
-    t.string "liked_id"
-    t.string "integer"
+    t.integer "liked_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["liked_id"], name: "index_relationship_likes_on_liked_id"

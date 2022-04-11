@@ -8,6 +8,7 @@ class User < ApplicationRecord
            class_name: "RelationshipLike",
            foreign_key: "liked_id",
            dependent: :destroy
+
   has_many :liked_other_users, through: :active_relationship_likes, source: :liked
   has_many :likers, through: :passive_relationship_likes
 

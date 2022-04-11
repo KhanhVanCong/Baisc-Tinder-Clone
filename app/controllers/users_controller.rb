@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy, liked, likers ]
+  before_action :set_user, only: %i[ show edit update destroy liked likers ]
+  before_action :logged_in_user, only: %i[ update destroy liked_the_other likers ]
 
   # GET /users or /users.json
   def index
@@ -58,14 +59,12 @@ class UsersController < ApplicationController
   end
 
   def liked_the_other
-    @user = User.find(params[:id])
-    @users = @user.liked_other_users
+    @users = current_user.liked_other_users
     render "users"
   end
 
   def likers
-    @user = User.find(params[:id])
-    @users = @user.likers
+    @users = current_user.likers
     render "users"
   end
 

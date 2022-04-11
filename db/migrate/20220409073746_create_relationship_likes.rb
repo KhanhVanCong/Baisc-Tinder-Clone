@@ -2,8 +2,7 @@ class CreateRelationshipLikes < ActiveRecord::Migration[7.0]
   def change
     create_table :relationship_likes do |t|
       t.integer :liker_id
-      t.string :liked_id
-      t.string :integer
+      t.integer :liked_id
 
       t.timestamps
     end
