@@ -1,0 +1,9 @@
+david_avatar:
+  name: avatar
+  record: david (User)
+  blob: user_avatar_blob
+
+hana_avatar:
+  name: avatar
+  record: hana (User)
+  blob: user_avatar_blob
